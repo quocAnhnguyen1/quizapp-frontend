@@ -22,21 +22,21 @@ export default {
   name: 'FlashCards',
   data () {
     return {
-      flashcards: [
-        {
-          id: 1,
-          subject: 'Statistik',
-          question: 'Was sind Kontingenztabellen?',
-          answer: 'Test'
-        },
-        {
-          id: 2,
-          subject: 'Testfach',
-          question: 'Testfrage?',
-          answer: 'Testantwort'
-        }
-      ]
+      flashcards: []
     }
+  },
+  mounted () {
+    const requestOptions = {
+      method: 'GET',
+      redirect: 'follow'
+    }
+
+    fetch('http://localhost:8080/api/v1/flashcards', requestOptions)
+      .then(response => response.json())
+      .then(result => result.forEach(flashcard => {
+        this.flashcards.push(flashcard)
+      }))
+      .catch(error => console.log('error', error))
   }
 }
 </script>
