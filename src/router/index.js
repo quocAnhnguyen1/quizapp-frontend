@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import Aboutview from '../views/AboutView'
-import QuizView from '@/views/QuizView'
+import QuizView from '@/views/FlashCards'
 
 const routes = [
   {
